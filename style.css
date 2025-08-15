@@ -1,0 +1,459 @@
+/* --- Variáveis de Cor e Fonte --- */
+:root {
+    --primary-color-dark: #231f20;
+    --primary-color-light: #3cc1c8;
+    --secondary-color-gray1: #4b4b4d;
+    --secondary-color-gray2: #d1d3d4;
+    --text-color: #ffffff;
+    --font-family: 'Roboto', sans-serif;
+    --font-weight-light: 300;
+}
+
+/* --- Reset Básico e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-light);
+    background-color: var(--primary-color-dark);
+    color: var(--secondary-color-gray2);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color-light);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* --- Header de Navegação --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    transition: all 0.1s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    position: relative;
+    height: 60px; /* Define altura para o container */
+    width: auto;
+}
+
+.nav-logo .logo-mini {
+    height: 60px;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo-white {
+    opacity: 1; /* Logo branca visível por padrão */
+}
+
+.logo-dark {
+    opacity: 0; /* Logo principal oculta por padrão */
+}
+
+.navbar.scrolled .logo-white {
+    opacity: 0; /* Oculta logo branca quando scrolled */
+}
+
+.navbar.scrolled .logo-dark {
+    opacity: 1; /* Mostra logo principal quando scrolled */
+}
+
+.nav-contact-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: 2px solid transparent;
+}
+
+.nav-contact-btn:hover {
+    color: var(--primary-color-light);
+    border-color: var(--primary-color-light);
+    transform: translateY(-2px);
+}
+
+.navbar.scrolled .nav-contact-btn {
+    color: var(--primary-color-dark);
+}
+
+.navbar.scrolled .nav-contact-btn:hover {
+    color: var(--primary-color-light);
+    border-color: var(--primary-color-light);
+}
+
+/* --- Botões de Navegação --- */
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-btn {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-btn:hover {
+    color: var(--primary-color-light);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar.scrolled .nav-btn {
+    color: var(--primary-color-dark);
+}
+
+.navbar.scrolled .nav-btn:hover {
+    color: var(--primary-color-light);
+    background-color: rgba(60, 193, 200, 0.1);
+}
+
+/* --- Seção Hero --- */
+.hero {
+    background: url('hero.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+    position: relative;
+    padding-top: 70px; /* Espaço para o header fixo */
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(64, 61, 86, 0.7); /* Overlay com a cor primária */
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-content h1 {
+    color: #D1D3D4;
+}
+
+.logo {
+    width: 350px;
+    margin-bottom: 1rem;
+}
+
+/* --- Seções de Conteúdo --- */
+.product-section, .about-section, .features-section, .contact-section {
+    padding: 60px 0;
+}
+
+.product-section {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+
+.product-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-text {
+    flex: 1;
+    text-align: left;
+}
+
+.product-text h2 {
+    color: var(--primary-color-dark);
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.product-text p {
+    color: var(--secondary-color-gray1);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    flex: 1;
+    text-align: center;
+    background: transparent;
+}
+
+.product-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .product-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .product-text {
+        text-align: center;
+    }
+}
+
+/* --- Seção Quem Somos --- */
+.about-section {
+    background-color: var(--primary-color-dark);
+    text-align: center;
+}
+
+.about-section h2 {
+    color: var(--primary-color-light);
+}
+
+.about-section p {
+    color: var(--secondary-color-gray2);
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* --- Seção de Recursos --- */
+.features-section {
+    background-color: var(--secondary-color-gray1);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.feature-item {
+    background: var(--primary-color-dark);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.feature-item h3 {
+    color: var(--primary-color-light);
+}
+
+/* --- Seção de Contato --- */
+.contact-section {
+    background-color: #ffffff;
+    position: relative;
+}
+
+.contact-section .container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 60px 30px;
+}
+
+.contact-section h2 {
+    color: var(--primary-color-dark);
+}
+
+.contact-section p {
+    color: var(--secondary-color-gray1);
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.contact-info p {
+    color: var(--primary-color-dark);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: rgba(209, 211, 212, 0.9);
+    border: none;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-light);
+    font-size: 1rem;
+    color: var(--primary-color-dark);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--secondary-color-gray1);
+}
+
+.cta-button {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #2aabb3;
+}
+
+/* --- Seção de Compra --- */
+.purchase-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.buy-button {
+    background: linear-gradient(135deg, var(--primary-color-light), #2aabb3);
+    color: var(--text-color);
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    font-family: var(--font-family);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(60, 193, 200, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.buy-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(60, 193, 200, 0.6);
+    background: linear-gradient(135deg, #2aabb3, var(--primary-color-light));
+}
+
+.purchase-info {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: var(--secondary-color-gray1);
+}
+
+/* --- Rodapé --- */
+.footer {
+    background-color: var(--primary-color-dark);
+    padding: 40px 0;
+    border-top: 3px solid var(--primary-color-light);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-contact {
+    text-align: right;
+}
+
+.footer p {
+    color: var(--text-color);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.footer strong {
+    color: var(--text-color);
+}
+
+/* Responsividade do footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-info,
+    .footer-contact {
+        text-align: center;
+    }
+}
